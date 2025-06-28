@@ -1,0 +1,350 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>C++ 实践编写笔记 | 十柒</title><meta name="author" content="十柒,2563730049@qq.com"><meta name="copyright" content="十柒"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="C++11 新特性C++的发展 早期的 C++ 被称为 “C with Classes”，引入了类（Class）概念，以及构造函数、析构函数和基本的面向对象编程支持。 1983 年，“C++” 的名字首次出现，代表着比 C 更进一步，同年，第一个正式的 C++ 编译器 Cfront 诞生，这是基于 C 编译器的一个预处理器。 1998 年，C++98，成为第一个 ISO 标准版本。 2003 年，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ 实践编写笔记">
+<meta property="og:url" content="https://rnhuahua.github.io/undefined/7aaeb88b.html">
+<meta property="og:site_name" content="十柒">
+<meta property="og:description" content="C++11 新特性C++的发展 早期的 C++ 被称为 “C with Classes”，引入了类（Class）概念，以及构造函数、析构函数和基本的面向对象编程支持。 1983 年，“C++” 的名字首次出现，代表着比 C 更进一步，同年，第一个正式的 C++ 编译器 Cfront 诞生，这是基于 C 编译器的一个预处理器。 1998 年，C++98，成为第一个 ISO 标准版本。 2003 年，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://rnhuahua.github.io/img/hutao_img/hutao16.jpg">
+<meta property="article:published_time" content="2024-12-07T11:37:33.000Z">
+<meta property="article:modified_time" content="2025-06-16T09:09:03.235Z">
+<meta property="article:author" content="十柒">
+<meta property="article:tag" content="C&#x2F;C++, Linux, 控制，算法，嵌入式">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://rnhuahua.github.io/img/hutao_img/hutao16.jpg"><link rel="shortcut icon" href="/img/tou.jpg"><link rel="canonical" href="https://rnhuahua.github.io/undefined/7aaeb88b.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C++ 实践编写笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><link rel="stylesheet" href="/css/_custom/custom.css"><!--style--><!--  body {--><!--    background: url("#{ page.top_img || theme.default_top_img }") no-repeat center center fixed !important;--><!--    background-size: cover !important;--><!--  }--><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (false) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="/css/progress_bar.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/tou.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 网页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/hutao_img/hutao16.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"></a><a class="nav-page-title" href="/"><span class="site-name">C++ 实践编写笔记</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 网页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">C++ 实践编写笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-12-07T11:37:33.000Z" title="发表于 2024-12-07 19:37:33">2024-12-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-06-16T09:09:03.235Z" title="更新于 2025-06-16 17:09:03">2025-06-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C-%E5%AE%9E%E8%B7%B5%E7%BC%96%E5%86%99%E7%AC%94%E8%AE%B0/">C++实践编写笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="C-11-新特性"><a href="#C-11-新特性" class="headerlink" title="C++11 新特性"></a>C++11 新特性</h1><h2 id="C-的发展"><a href="#C-的发展" class="headerlink" title="C++的发展"></a>C++的发展</h2><ul>
+<li>早期的 C++ 被称为 “C with Classes”，引入了类（Class）概念，以及构造函数、析构函数和基本的面向对象编程支持。</li>
+<li>1983 年，“C++” 的名字首次出现，代表着比 C 更进一步，同年，第一个正式的 C++ 编译器 Cfront 诞生，这是基于 C 编译器的一个预处理器。</li>
+<li>1998 年，C++98，成为第一个 ISO 标准版本。</li>
+<li>2003 年，C++03，是对 C++98 的小幅修订，主要修复了细节问题。</li>
+<li>2011 年，C++11，C++的崛起，引入了许多革命性特性。如：auto 关键字、Lambda 表达式等。</li>
+<li>2014 年，C++14，小幅改进 C++11，增强了 Lambda 表达式和标准库。</li>
+<li>2017 年，C++17，新增特性包括结构化绑定（Structured Bindings）、std::optional 和 文件系统支持。更关注现代开发需求，尤其是代码可读性和性能优化。</li>
+<li>2020 年，C++20，大规模升级，包括概念（Concepts）、协程（Coroutines）和模块化（Modules），C++20 被认为是现代 C++ 的一个里程碑。</li>
+<li>2023 年，C++23，继续改进协程和标准库。<h2 id="auto-关键字"><a href="#auto-关键字" class="headerlink" title="auto 关键字"></a>auto 关键字</h2>见文章<a href="https://rnhuahua.github.io/undefined/bbcf5ff7.html">Lambda表达式</a><h2 id="decltype-关键字"><a href="#decltype-关键字" class="headerlink" title="decltype 关键字"></a>decltype 关键字</h2><code>decltype</code> 可用于获取表达式的类型<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> x = <span class="number">42</span>;</span><br><span class="line"><span class="keyword">decltype</span>(x) y = <span class="number">10</span>; <span class="comment">// y 的类型为 int</span></span><br></pre></td></tr></table></figure>
+<h2 id="lambda-表达式"><a href="#lambda-表达式" class="headerlink" title="lambda 表达式"></a>lambda 表达式</h2>见文章<a href="https://rnhuahua.github.io/undefined/bbcf5ff7.html">Lambda表达式</a></li>
+</ul>
+<h2 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h2><ul>
+<li>左值：指可以出现在赋值操作符左边的表达式，表示一个内存位置，可以取地址。</li>
+<li>右值：指不能出现在赋值操作符左边的表达式，通常是临时对象或字面值，表示一个值而不是一个内存位置。</li>
+<li>左值引用：左值引用是对左值的引用，可以通过 <code>&amp;</code> 符号来定义。左值引用允许我们通过引用来访问和修改对象。  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> &amp;ref = a; <span class="comment">// ref 是 a 的左值引用</span></span><br><span class="line">ref = <span class="number">20</span>; <span class="comment">// 修改 ref 也会修改 a</span></span><br></pre></td></tr></table></figure></li>
+<li>右值引用：通过 <code>&amp;&amp;</code> 符号来定义。右值引用允许我们捕获和修改临时对象，主要用于实现移动语义和完美转发。  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> &amp;&amp;rref = <span class="number">10</span>; <span class="comment">// rref 是一个右值引用，引用了临时右值 10</span></span><br><span class="line">rref = <span class="number">20</span>; <span class="comment">// 修改 rref</span></span><br></pre></td></tr></table></figure></li>
+<li>移动语义：右值引用的核心意义在于引入移动语义，优化对象的拷贝行为。  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyString</span> &#123;</span><br><span class="line">    std::string data;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MyString</span>(<span class="type">const</span> std::string&amp; str) : <span class="built_in">data</span>(str) &#123;&#125;  <span class="comment">// 拷贝构造函数</span></span><br><span class="line">    <span class="built_in">MyString</span>(std::string&amp;&amp; str) : <span class="built_in">data</span>(std::<span class="built_in">move</span>(str)) &#123;&#125;  <span class="comment">// 移动构造函数</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::string str = <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line">    <span class="function">MyString <span class="title">obj1</span><span class="params">(str)</span></span>;        <span class="comment">// 调用拷贝构造函数</span></span><br><span class="line">    <span class="function">MyString <span class="title">obj2</span><span class="params">(std::move(str))</span></span>; <span class="comment">// 调用移动构造函数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>拷贝构造函数： 会将 str 的内容逐字复制到新的对象中。</li>
+<li>移动构造函数： 会“搬走”str 的内容，避免浪费内存和时间<h2 id="nullptr"><a href="#nullptr" class="headerlink" title="nullptr"></a>nullptr</h2>取代旧的 NULL 指针，避免类型不明确的问题。<h2 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h2>引入了两种常用智能指针，替代传统指针，解决资源管理问题：</li>
+</ul>
+</li>
+<li><code>std::unique_ptr</code>： 独占所有权。</li>
+<li><code>std::shared_ptr</code>： 共享所有权。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;memory&gt;</span></span></span><br><span class="line"><span class="keyword">auto</span> ptr = std::<span class="built_in">make_shared</span>&lt;<span class="type">int</span>&gt;(<span class="number">10</span>); <span class="comment">// 创建 shared_ptr</span></span><br><span class="line">std::cout &lt;&lt; *ptr &lt;&lt; std::endl;       <span class="comment">// 输出 10</span></span><br></pre></td></tr></table></figure>
+<h2 id="constexpr"><a href="#constexpr" class="headerlink" title="constexpr"></a>constexpr</h2><p>用于在编译时计算常量表达式。它可以用于变量、函数和构造函数，以提高程序的性能和安全性。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">constexpr</span> <span class="type">int</span> <span class="title">square</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123; <span class="keyword">return</span> x * x; &#125;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> result = <span class="built_in">square</span>(<span class="number">5</span>); <span class="comment">// result 在编译时计算</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="范围for循环"><a href="#范围for循环" class="headerlink" title="范围for循环"></a>范围for循环</h2><p>用于简化容器和数组的遍历<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">std::vector&lt;<span class="type">int</span>&gt; vec = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> x : vec) &#123;</span><br><span class="line">    std::cout &lt;&lt; x &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="默认与删除的函数"><a href="#默认与删除的函数" class="headerlink" title="默认与删除的函数"></a>默认与删除的函数</h2><p>显式声明函数为默认或禁止：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MyClass</span>() = <span class="keyword">default</span>;         <span class="comment">// 使用默认构造函数</span></span><br><span class="line">    <span class="built_in">MyClass</span>(<span class="type">const</span> MyClass&amp;) = <span class="keyword">delete</span>; <span class="comment">// 禁止拷贝构造函数</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="function模板类"><a href="#function模板类" class="headerlink" title="function模板类"></a><code>function</code>模板类</h2><ul>
+<li>是 C++11 中引入的一个模板类，用来包装任何可调用对象，如普通函数、Lambda 表达式、函数指针、成员函数、仿函数等。它使得函数和函数指针可以像对象一样传递和使用，提供了更大的灵活性。</li>
+<li>用法示例：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;functional&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">printMessage</span><span class="params">(<span class="type">const</span> std::string&amp; message)</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; message &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::function&lt;<span class="type">void</span>(<span class="type">const</span> std::string&amp;)&gt; func = printMessage;   <span class="comment">//定义了一个变量，用来存储输入类型为const std::string&amp;，输出类型为void的函数。并给其赋值，像使用变量一样。</span></span><br><span class="line">    <span class="built_in">func</span>(<span class="string">&quot;Hello, &lt;functional&gt;!&quot;</span>);                                  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="explicit-关键字"><a href="#explicit-关键字" class="headerlink" title="explicit 关键字"></a>explicit 关键字</h1><p>explicit 关键字用于修饰类的构造函数。它的作用是防止隐式的类型转换。</p>
+<p>当一个类的构造函数只有一个参数时，如果没有 explicit 关键字修饰，C++ 编译器可能会允许将该参数类型的对象隐式地转换为该类类型的对象。这通常被称为隐式转换构造函数。虽然这在某些情况下很方便，但它也可能导致意料之外的行为和错误。</p>
+<p>explicit 关键字就是为了避免这种隐式转换，强制你进行显式转换。</p>
+<h1 id="override-关键字"><a href="#override-关键字" class="headerlink" title="override 关键字"></a>override 关键字</h1><p>override 是 C++11 及更高版本中的一个上下文关键字。它主要用来明确表示派生类中的成员函数旨在覆盖基类中的虚函数。</p>
+<p>编译时检查： 如果没有 override，你不小心打错了虚函数的名称，或者它的签名（参数或 const 属性）与基类的虚函数不完全匹配，编译器是不会报错的。相反，你会在派生类中无意中创建了一个新函数，它只是隐藏了基类的函数。这可能导致难以调试的微妙的运行时错误，尤其是在多态性中。override 让编译器强制执行规则：“如果你说你要覆盖，那么你必须覆盖一个现有的、签名完全匹配的虚函数。” 如果你不匹配，你就会得到一个编译时错误，这比运行时出现意外要好得多。<br>提高可读性： 它清楚地向其他开发者（以及未来的你自己）表明，这个函数是多态接口的一部分。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">doSomething</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 基类实现</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">anotherFunc</span><span class="params">(<span class="type">int</span> x)</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 基类实现</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">onlyInBase</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 只有基类有的虚函数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span> : <span class="keyword">public</span> Base &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 正确使用 override</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">doSomething</span><span class="params">()</span> <span class="keyword">override</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 派生类实现</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 错误示例：签名不匹配，如果加上 override 会编译报错</span></span><br><span class="line">    <span class="comment">// void anotherFunc(int x) &#123; // 缺少 const</span></span><br><span class="line">    <span class="comment">//     // ...</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 正确使用 override</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">anotherFunc</span><span class="params">(<span class="type">int</span> x)</span> <span class="type">const</span> <span class="keyword">override</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 派生类实现</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 错误示例：基类中没有这个虚函数，如果加上 override 会编译报错</span></span><br><span class="line">    <span class="comment">// void notAVirtualFunc() override &#123;</span></span><br><span class="line">    <span class="comment">//     // ...</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 正确示例：没有 override，因为 doSomethingElse 不是虚函数，或者不是覆盖基类的虚函数</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">doSomethingElse</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://rnhuahua.github.io">十柒</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://rnhuahua.github.io/undefined/7aaeb88b.html">https://rnhuahua.github.io/undefined/7aaeb88b.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://rnhuahua.github.io" target="_blank">十柒</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/hutao_img/hutao16.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/undefined/58a84bc7.html" title="动态内存"><img class="cover" src="/img/hutao_img/hutao11.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">动态内存</div></div><div class="info-2"><div class="info-item-1">动态内存是指程序在运行时通过堆（heap）分配的内存，用于在程序执行过程中动态创建和管理数据。在 C++ 中，动态内存使用 new 和 delete 操作符进行分配和释放。 分配单个对象1234int* ptr = new int; // 分配一个整数*ptr = 42;         // 给分配的内存赋值std::cout &lt;&lt; *ptr &lt;&lt; std::endl;delete ptr;        // 释放内存 在 C++ 中，还可以使用动态内存分配为类的对象分配内存。通过 new 操作符可以创建对象，同时调用构造函数进行初始化。使用完对象后，需要用 delete 释放内存以调用析构函数并回收资源。123456789101112131415161718192021222324252627282930313233343536373839#include &lt;iostream&gt;using namespace std;// 基类class Animal &#123;public:    Animal() &#123;       ...</div></div></div></a><a class="pagination-related" href="/undefined/690b97f5.html" title="数据封装和数据抽象"><img class="cover" src="/img/hutao_img/hutao10.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">数据封装和数据抽象</div></div><div class="info-2"><div class="info-item-1">数据封装所有的 C++ 程序都有以下两个基本要素：  程序语句（代码）：这是程序中执行动作的部分，它们被称为函数。 程序数据：数据是程序的信息，会受到程序函数的影响。  数据封装（Data Encapsulation）是面向对象编程（OOP）的一个基本概念，它通过将数据和操作数据的函数封装在一个类中来实现。这种封装确保了数据的私有性和完整性，防止了外部代码对其直接访问和修改。 实例1234567891011121314151617181920212223242526272829303132333435#include &lt;iostream&gt;using namespace std; class Adder&#123;   public:      // 构造函数      Adder(int i = 0)      &#123;        total = i;      &#125;      // 对外的接口      void addNum(int number)      &#123;          total += number;      &#125;...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/tou.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">十柒</div><div class="author-info-description">苦逼学生党</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="mailto:2563730049@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎光临小站！<br>&emsp;&emsp;本站的内容经过个人总结编写而来，也参考借鉴了网友们分享的资料，如有侵权，请第一时间联系我，我将及时进行修改或删除😊</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C-11-%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-text">C++11 新特性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-text">C++的发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#auto-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">auto 关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#decltype-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">decltype 关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">lambda 表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8"><span class="toc-text">右值引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nullptr"><span class="toc-text">nullptr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88"><span class="toc-text">智能指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#constexpr"><span class="toc-text">constexpr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8C%83%E5%9B%B4for%E5%BE%AA%E7%8E%AF"><span class="toc-text">范围for循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E4%B8%8E%E5%88%A0%E9%99%A4%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-text">默认与删除的函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#function%E6%A8%A1%E6%9D%BF%E7%B1%BB"><span class="toc-text">function模板类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#explicit-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">explicit 关键字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#override-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">override 关键字</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/undefined/614f23f1.html" title="解决Github进不去的问题"><img src="/img/niuza_img/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="解决Github进不去的问题"/></a><div class="content"><a class="title" href="/undefined/614f23f1.html" title="解决Github进不去的问题">解决Github进不去的问题</a><time datetime="2025-06-28T11:24:40.000Z" title="发表于 2025-06-28 19:24:40">2025-06-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/36402340.html" title="LOS"><img src="/img/fufu_img/3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LOS"/></a><div class="content"><a class="title" href="/undefined/36402340.html" title="LOS">LOS</a><time datetime="2025-05-10T09:37:51.000Z" title="发表于 2025-05-10 17:37:51">2025-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/73b25c11.html" title="Cmake 实践"><img src="/img/shenzi_img/6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cmake 实践"/></a><div class="content"><a class="title" href="/undefined/73b25c11.html" title="Cmake 实践">Cmake 实践</a><time datetime="2025-05-07T07:58:31.000Z" title="发表于 2025-05-07 15:58:31">2025-05-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/5ae3167f.html" title="Linux下基于VSCode的c和c++编译环境搭建"><img src="/img/shenzi_img/5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux下基于VSCode的c和c++编译环境搭建"/></a><div class="content"><a class="title" href="/undefined/5ae3167f.html" title="Linux下基于VSCode的c和c++编译环境搭建">Linux下基于VSCode的c和c++编译环境搭建</a><time datetime="2025-05-06T08:51:31.000Z" title="发表于 2025-05-06 16:51:31">2025-05-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/7fb710be.html" title="gcc、make与cmake"><img src="/img/shenzi_img/4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="gcc、make与cmake"/></a><div class="content"><a class="title" href="/undefined/7fb710be.html" title="gcc、make与cmake">gcc、make与cmake</a><time datetime="2025-04-19T08:51:31.000Z" title="发表于 2025-04-19 16:51:31">2025-04-19</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/hutao_img/hutao16.jpg);"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2025 By 十柒</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const loadMathjax = () => {
+    if (!window.MathJax) {
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          tags: 'none',
+        },
+        chtml: {
+          scale: 1.1
+        },
+        options: {
+          enableMenu: true,
+          renderActions: {
+            findScript: [10, doc => {
+              for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+                const display = !!node.type.match(/; *mode=display/)
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+                const text = document.createTextNode('')
+                node.parentNode.replaceChild(text, node)
+                math.start = {node: text, delim: '', n: 0}
+                math.end = {node: text, delim: '', n: 0}
+                doc.math.push(math)
+              }
+            }, '']
+          }
+        }
+      }
+      
+      const script = document.createElement('script')
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+      script.id = 'MathJax-script'
+      script.async = true
+      document.head.appendChild(script)
+    } else {
+      MathJax.startup.document.state(0)
+      MathJax.texReset()
+      MathJax.typesetPromise()
+    }
+  }
+
+  btf.addGlobalFn('encrypt', loadMathjax, 'mathjax')
+  window.pjax ? loadMathjax() : window.addEventListener('load', loadMathjax)
+})()</script><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.isShuoshuo
+  const option = null
+
+  const commentCount = n => {
+    const isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+    if (isCommentCount) {
+      isCommentCount.textContent= n
+    }
+  }
+
+  const initGitalk = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGitalk = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const gitalk = new Gitalk({
+      clientID: 'Ov23li9WWC34KRq8FHtj',
+      clientSecret: '703347e9544bae54fbcf7d7ebe6a76ccc15506e6',
+      repo: 'rnhuahua.github.io',
+      owner: 'rnhuahua',
+      admin: ['rnhuahua'],
+      updateCountCallback: commentCount,
+      ...option,
+      id: isShuoshuo ? path : (option && option.id) || '41d1316d944d941991f7732675d2b730'
+    })
+
+    gitalk.render('gitalk-container')
+  }
+
+  const loadGitalk = async(el, path) => {
+    if (typeof Gitalk === 'function') initGitalk(el, path)
+    else {
+      await btf.getCSS('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css')
+      await btf.getScript('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js')
+      initGitalk(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Gitalk' === 'Gitalk'
+      ? window.shuoshuoComment = { loadComment: loadGitalk }
+      : window.loadOtherComment = loadGitalk
+    return
+  }
+
+  if ('Gitalk' === 'Gitalk' || !false) {
+    if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+    else loadGitalk()
+  } else {
+    window.loadOtherComment = loadGitalk
+  }
+})()</script></div><script async src="/js/title.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script>(() => {
+  const isChatBtn = false
+  const isChatHideShow = false
+
+  if (isChatBtn) {
+    const close = () => {
+      Chatra('minimizeWidget')
+      Chatra('hide')
+    }
+
+    const open = () => {
+      Chatra('openChat', true)
+      Chatra('show')
+    }
+
+    window.ChatraSetup = { startHidden: true }
+  
+    window.chatBtnFn = () => {
+      document.getElementById('chatra').classList.contains('chatra--expanded') ? close() : open()
+    }
+  } else if (isChatHideShow) {
+    window.chatBtn = {
+      hide: () => Chatra('hide'),
+      show: () => Chatra('show')
+    }
+  }
+
+  (function(d, w, c) {
+    w.ChatraID = ''
+    var s = d.createElement('script')
+    w[c] = w[c] || function() {
+      (w[c].q = w[c].q || []).push(arguments)
+    }
+    s.async = true
+    s.src = 'https://call.chatra.io/chatra.js'
+    if (d.head) d.head.appendChild(s)
+  })(document, window, 'Chatra')
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

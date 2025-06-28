@@ -1,0 +1,288 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>十柒</title><meta name="author" content="十柒,2563730049@qq.com"><meta name="copyright" content="十柒"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="苦逼学生党">
+<meta property="og:type" content="website">
+<meta property="og:title" content="十柒">
+<meta property="og:url" content="https://rnhuahua.github.io/index.html">
+<meta property="og:site_name" content="十柒">
+<meta property="og:description" content="苦逼学生党">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://rnhuahua.github.io/img/tou.jpg">
+<meta property="article:author" content="十柒">
+<meta property="article:tag" content="C&#x2F;C++, Linux, 控制，算法，嵌入式">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://rnhuahua.github.io/img/tou.jpg"><link rel="shortcut icon" href="/img/tou.jpg"><link rel="canonical" href="https://rnhuahua.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '十柒',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  isShuoshuo: false
+}</script><link rel="stylesheet" href="/css/_custom/custom.css"><!--style--><!--  body {--><!--    background: url("#{ page.top_img || theme.default_top_img }") no-repeat center center fixed !important;--><!--    background-size: cover !important;--><!--  }--><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (false) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="/css/progress_bar.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/tou.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 网页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/index.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 网页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">十柒</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="mailto:2563730049@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/undefined/614f23f1.html" title="解决Github进不去的问题"><img class="post-bg" src="/img/niuza_img/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="解决Github进不去的问题"></a></div><div class="recent-post-info"><a class="article-title" href="/undefined/614f23f1.html" title="解决Github进不去的问题">解决Github进不去的问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-06-28T11:24:40.000Z" title="发表于 2025-06-28 19:24:40">2025-06-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E5%AE%83/">其它</a></span></div><div class="content">问题描述网页Github进不去，尽管已经连接梯子。在Cmd中ping github.com 百分比丢包。 解决方法 在目录 1C:\Windows\System32\drivers\etc  找到hosts文件，在最后加上两行github的IP 12192.30.253.112 github.com151.101.88.249 github.global.ssl.fastly.net 如何还是ping不通，192.30.255.112 可能是旧的 GitHub IP，GitHub 的 IP 经常变。在cmd中输入以下指令检查最新 IP：12nslookup github.comnslookup github.global.ssl.fastly.net 替换到第二步中的地址  </div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/undefined/36402340.html" title="LOS"><img class="post-bg" src="/img/fufu_img/3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LOS"></a></div><div class="recent-post-info"><a class="article-title" href="/undefined/36402340.html" title="LOS">LOS</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-05-10T09:37:51.000Z" title="发表于 2025-05-10 17:37:51">2025-05-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95/">控制算法</a></span></div><div class="content">&emsp;&emsp;追踪控制算法中的视线法（Pure Pursuit Algorithm） 是一种常用于无人车、自主机器人或自动驾驶系统的路径跟踪算法。它的核心思想是通过确定一个“目标点”，使车辆以特定的转向角调整其行驶方向，从而逐步靠近预定路径。 视线法的基本原理 视线点： 视线点是路径上一个期望的参考点，航向调整是基于该点的相对位置。通常，视线点位于当前位置前方的某个固定或动态计算的距离处。 从当前位置沿着路径找到一个距离为“前视距离”（Lookahead...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/undefined/73b25c11.html" title="Cmake 实践"><img class="post-bg" src="/img/shenzi_img/6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cmake 实践"></a></div><div class="recent-post-info"><a class="article-title" href="/undefined/73b25c11.html" title="Cmake 实践">Cmake 实践</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-05-07T07:58:31.000Z" title="发表于 2025-05-07 15:58:31">2025-05-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/linux/">linux</a></span></div><div class="content">使用 CMake 构建的 C++ 项目如何进行调试方法 一在CMakeLists.txt中添加123set(CMAKE_BUILD_TYPE &quot;Debug&quot;)set(CMAKE_C_FLAGS_DEBUG &quot;$ENV&#123;CFLAGS&#125; -O0 -Wall -g -ggdb&quot;)set(CMAKE_CXX_FLAGS_DEBUG &quot;$ENV&#123;CXXFLAGS&#125; -O0 -Wall -g -ggdb&quot;) gdb 可执行文件进行调试 方法 二在vscode中使用cmake tool插件进性调试 后续。。。</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/undefined/5ae3167f.html" title="Linux下基于VSCode的c和c++编译环境搭建"><img class="post-bg" src="/img/shenzi_img/5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux下基于VSCode的c和c++编译环境搭建"></a></div><div class="recent-post-info"><a class="article-title" href="/undefined/5ae3167f.html" title="Linux下基于VSCode的c和c++编译环境搭建">Linux下基于VSCode的c和c++编译环境搭建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-05-06T08:51:31.000Z" title="发表于 2025-05-06 16:51:31">2025-05-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/linux/">linux</a></span></div><div class="content">可以使用gcc/g++、make、cmake编译 基础环境 ubuntu24.04 安装VSCode 在VSCode中安装C++拓展  1. gcc/g++1.1. 环境配置 首先确保ubuntu系统已安装gcc,使用gcc -v命令查看 如果能够正确打印出当前gcc的版本信息，则表示已经预装。若没有预装，则用如下命令安装安装 GNU 编译器工具和 GDB 调试器： 12sudo apt update # 更新软件包源 sudo apt-get install build-essential gdb   1.2. 配置项目的配置文件位于.vscode文件夹下： c_cpp_properties.json (compiler path and IntelliSense settings) tasks.json (compiler build settings)  launch.json (debugger...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/undefined/7fb710be.html" title="gcc、make与cmake"><img class="post-bg" src="/img/shenzi_img/4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="gcc、make与cmake"></a></div><div class="recent-post-info"><a class="article-title" href="/undefined/7fb710be.html" title="gcc、make与cmake">gcc、make与cmake</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-04-19T08:51:31.000Z" title="发表于 2025-04-19 16:51:31">2025-04-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/linux/">linux</a></span></div><div class="content">1.gcc&emsp;&emsp;gcc是GNU Compiler Collection（就是GNU编译器套件），也可以简单认为是编译器，它可以编译很多种编程语言（括C、C++、Objective-C、Fortran、Java等等）。当你的程序只有一个源文件时，直接就可以用gcc命令编译它。  gcc hello.c -o hello，也可以gcc -o hello hello.c 编译成功后会生成一个可执行文件hello，在命令行中输入 ./hello运行程序  或者分步骤 123456gcc - 选项 源文件名(依赖文件) -o 目标文件名或者gcc -选项 -o 目标文件 源文件名(依赖文件)选项：-E 从当前文件开始，在预处理完成之后停止， 生成的文件后缀一般加i-S 从当前文件开始，在编译完成之后停止， 生成的文件后缀一般加s  预处理：gcc -E hello.c -o hello.i 编译：gcc -S hello.i -o hello.s 汇编：gcc -c hello.s -o hello.o 链接：gcc hello.o -o...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/undefined/73bed3ab.html" title="Vim编辑器"><img class="post-bg" src="/img/shenzi_img/3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vim编辑器"></a></div><div class="recent-post-info"><a class="article-title" href="/undefined/73bed3ab.html" title="Vim编辑器">Vim编辑器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-04-18T07:14:31.000Z" title="发表于 2025-04-18 15:14:31">2025-04-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/linux/">linux</a></span></div><div class="content">Vim 是从 vi 发展出来的一个文本编辑器。具有代码补全、编译及错误跳转等方便编程的功能。 Vim的使用vim 共分为三种模式，命令模式（Command Mode）、输入模式（Insert Mode）和底线命令行模式（Command-Line Mode）。 命令模式启动vim，便进入命令模式。命令模式下，此时我们的输入会被识别为命令，而非字符。常用的命令：  i 切换到输入模式，在光标当前位置开始输入文本。 a 进入插入模式，在光标下一个位置开始输入文本。 o 在当前行的下方插入一个新行，并进入插入模式。 O 在当前行的上方插入一个新行，并进入插入模式。 x 删除当前光标所在处的字符。 yy 复制当前行。 p（小写） 粘贴剪贴板内容到光标下方。 P（大写） 粘贴剪贴板内容到光标上方。 u 撤销上一次操作。 Ctrl + r 重做上一次撤销的操作。 : 切换到底线命令模式，以在最底一行输入命令。 :w  保存文件。 :q  退出 Vim 编辑器。 :q! 强制退出Vim 编辑器，不保存修改。当我们想要编辑文本，只需要启动 Vim，进入了命令模式，按下 i...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/undefined/e44da.html" title="Linux 常用指令"><img class="post-bg" src="/img/shenzi_img/3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 常用指令"></a></div><div class="recent-post-info"><a class="article-title" href="/undefined/e44da.html" title="Linux 常用指令">Linux 常用指令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-04-16T09:02:31.000Z" title="发表于 2025-04-16 17:02:31">2025-04-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/linux/">linux</a></span></div><div class="content">linux系统文件目录/bin        二进制文件，系统常规命令 /boot       系统启动分区，系统启动时读取的文件 /dev        设备文件 /etc        大多数配置文件 /home       普通用户的家目录 /lib        32位函数库 /lib64      64位库 /media      手动临时挂载点 /mnt        手动临时挂载点 /opt        第三方软件安装位置 /proc       进程信息及硬件信息 /root       临时设备的默认挂载点 /sbin       系统管理命令 /srv        数据 /var        数据 /sys        内核相关信息 /tmp        临时文件 /usr        用户相关设定 快捷键 Alt + F4 关闭当前窗口 Ctrl + Alt + T 打开终端 Ctrl + Shift + C 复制 Ctrl + Shift + V 粘贴 Ctrl + l 清空屏幕 Ctrl + c 终止命令 Ctrl + z...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/undefined/a3a34b72.html" title="Shell 脚本"><img class="post-bg" src="/img/shenzi_img/2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Shell 脚本"></a></div><div class="recent-post-info"><a class="article-title" href="/undefined/a3a34b72.html" title="Shell 脚本">Shell 脚本</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-04-15T07:14:31.000Z" title="发表于 2025-04-15 15:14:31">2025-04-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/linux/">linux</a></span></div><div class="content">1.什么是ShellShell有两层身份：  Shell 是一个“应用程序”（解析器）它是用户和操作系统之间的“翻译官”，接收你输入的命令，然后交给内核执行。常见的 Shell 应用程序有： | Shell                              | 常见平台                             | 特点                                         | | ————————————————— | —————————————————— | —————————————————————— | | bash (Bourne Again SHell)          | Linux, macOS（默认）                 | 最常见，功能强，支持数组、字符串操作         | | sh（Bourne Shell）                 | Unix, Linux                          | 最早的 Shell，兼容性高，功能略弱             |...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/undefined/68c8e116.html" title="Linux系统"><img class="post-bg" src="/img/shenzi_img/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux系统"></a></div><div class="recent-post-info"><a class="article-title" href="/undefined/68c8e116.html" title="Linux系统">Linux系统</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-04-11T07:14:31.000Z" title="发表于 2025-04-11 15:14:31">2025-04-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/linux/">linux</a></span></div><div class="content">Linux系统简介Linux 本质上是一个内核（kernel），但通常我们说的“Linux 系统”是指 内核 + 各种工具/软件包的集合。Linux内核是开源的，允许软件被自由地使用、修改和再发布，因此许多公司和组织都会基于Linux内核，来开发自己的系统，即发行版，如：  Ubuntu（用户友好，适合入门） CentOS / RHEL（服务器常用） Debian（稳定性高） Arch Linux（极度自定义） Kali Linux（渗透测试、安全研究）  Linux系统结构（从底层到高层） 硬件层 就是物理设备，例如：CPU、内存、硬盘、网卡、外设等。 Linux通过驱动程序控制和管理这些硬件   Linux内核（Kernel）内核是Linux系统最重要的部分，关键模块|模块|功能||—-|—-||进程管理|    负责进程调度、创建、终止（多任务能力）||内存管理|    管理虚拟内存、物理内存分配等||文件系统|    支持各种文件系统（ext4、NTFS、FAT等）||设备驱动|    管理硬件设备，如鼠标、硬盘、摄像头等||网络协议栈|    提供...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/undefined/c966a76e.html" title="模糊（Fuzzy）控制算法C++实现"><img class="post-bg" src="/img/fufu_img/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="模糊（Fuzzy）控制算法C++实现"></a></div><div class="recent-post-info"><a class="article-title" href="/undefined/c966a76e.html" title="模糊（Fuzzy）控制算法C++实现">模糊（Fuzzy）控制算法C++实现</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-12-30T06:37:51.000Z" title="发表于 2024-12-30 14:37:51">2024-12-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95/">控制算法</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95/%E6%A8%A1%E7%B3%8A%E6%8E%A7%E5%88%B6/">模糊控制</a></span></div><div class="content">引言在前面的一篇文章PID控制算法简单说明了模糊控制算法的原理，本文用C++实现了一个通用性的模糊控制器。 fuzzy_controller.hpp文件12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758#pragma once#include &lt;functional&gt;#include &lt;map&gt;#include &lt;string&gt;#include &lt;vector&gt;namespace control_algorithm &#123;/** * @brief * 表示模糊集合的类，代表一个模糊集合，包含集合的名称和一个隶属度函数（该函数返回给定值的隶属度）。 */class FuzzySet &#123; public:  std::string name;                                  // 模糊集合的名称 ...</div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#content-inner">4</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/tou.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">十柒</div><div class="author-info-description">苦逼学生党</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="mailto:2563730049@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎光临小站！<br>&emsp;&emsp;本站的内容经过个人总结编写而来，也参考借鉴了网友们分享的资料，如有侵权，请第一时间联系我，我将及时进行修改或删除😊</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/undefined/614f23f1.html" title="解决Github进不去的问题"><img src="/img/niuza_img/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="解决Github进不去的问题"/></a><div class="content"><a class="title" href="/undefined/614f23f1.html" title="解决Github进不去的问题">解决Github进不去的问题</a><time datetime="2025-06-28T11:24:40.000Z" title="发表于 2025-06-28 19:24:40">2025-06-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/36402340.html" title="LOS"><img src="/img/fufu_img/3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LOS"/></a><div class="content"><a class="title" href="/undefined/36402340.html" title="LOS">LOS</a><time datetime="2025-05-10T09:37:51.000Z" title="发表于 2025-05-10 17:37:51">2025-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/73b25c11.html" title="Cmake 实践"><img src="/img/shenzi_img/6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cmake 实践"/></a><div class="content"><a class="title" href="/undefined/73b25c11.html" title="Cmake 实践">Cmake 实践</a><time datetime="2025-05-07T07:58:31.000Z" title="发表于 2025-05-07 15:58:31">2025-05-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/5ae3167f.html" title="Linux下基于VSCode的c和c++编译环境搭建"><img src="/img/shenzi_img/5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux下基于VSCode的c和c++编译环境搭建"/></a><div class="content"><a class="title" href="/undefined/5ae3167f.html" title="Linux下基于VSCode的c和c++编译环境搭建">Linux下基于VSCode的c和c++编译环境搭建</a><time datetime="2025-05-06T08:51:31.000Z" title="发表于 2025-05-06 16:51:31">2025-05-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/7fb710be.html" title="gcc、make与cmake"><img src="/img/shenzi_img/4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="gcc、make与cmake"/></a><div class="content"><a class="title" href="/undefined/7fb710be.html" title="gcc、make与cmake">gcc、make与cmake</a><time datetime="2025-04-19T08:51:31.000Z" title="发表于 2025-04-19 16:51:31">2025-04-19</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">C++学习笔记</span><span class="card-category-list-count">16</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E5%AE%9E%E8%B7%B5%E7%BC%96%E5%86%99%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">C++实践编写笔记</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Hexo-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><span class="card-category-list-name">Hexo 博客搭建</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/linux/"><span class="card-category-list-name">linux</span><span class="card-category-list-count">7</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%85%B6%E5%AE%83/"><span class="card-category-list-name">其它</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">开发工具</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/"><span class="card-category-list-name">控制理论</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95/"><span class="card-category-list-name">控制算法</span><span class="card-category-list-count">7</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/LOSLOS/" style="font-size: 1.1em; color: #999">LOSLOS</a> <a href="/tags/%E5%89%8D%E9%A6%88%E6%8E%A7%E5%88%B6/" style="font-size: 1.1em; color: #999">前馈控制</a> <a href="/tags/%E6%A8%A1%E7%B3%8A%E6%8E%A7%E5%88%B6/" style="font-size: 1.3em; color: #99a1ac">模糊控制</a> <a href="/tags/PID%E6%8E%A7%E5%88%B6/" style="font-size: 1.5em; color: #99a9bf">PID控制</a> <a href="/tags/PID/" style="font-size: 1.1em; color: #999">PID</a> <a href="/tags/%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95/" style="font-size: 1.3em; color: #99a1ac">控制算法</a> <a href="/tags/%E5%8F%8C%E9%97%AD%E7%8E%AF/" style="font-size: 1.1em; color: #999">双闭环</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+    <ul class="card-archive-list">
+  
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2025/06/">
+          <span class="card-archive-list-date">六月 2025</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2025/05/">
+          <span class="card-archive-list-date">五月 2025</span>
+          <span class="card-archive-list-count">3</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2025/04/">
+          <span class="card-archive-list-date">四月 2025</span>
+          <span class="card-archive-list-count">5</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/12/">
+          <span class="card-archive-list-date">十二月 2024</span>
+          <span class="card-archive-list-count">21</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/11/">
+          <span class="card-archive-list-date">十一月 2024</span>
+          <span class="card-archive-list-count">9</span>
+        </a>
+      </li>
+    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">39</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">60.9k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-06-28T11:34:10.338Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/index.png);"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2025 By 十柒</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  if (true) {
+    typedJSFn.init(["人间忽晚，山河已秋","月亮漫过山河，温柔落在心头","世间草木无情，却因你灿然生光","云破月来花弄影，灯火阑珊星河近"])
+  } else {
+    document.getElementById("subtitle").textContent = "人间忽晚，山河已秋"
+  }
+}
+typedJSFn.run(subtitleType)</script></div><script async src="/js/title.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script>(() => {
+  const isChatBtn = false
+  const isChatHideShow = false
+
+  if (isChatBtn) {
+    const close = () => {
+      Chatra('minimizeWidget')
+      Chatra('hide')
+    }
+
+    const open = () => {
+      Chatra('openChat', true)
+      Chatra('show')
+    }
+
+    window.ChatraSetup = { startHidden: true }
+  
+    window.chatBtnFn = () => {
+      document.getElementById('chatra').classList.contains('chatra--expanded') ? close() : open()
+    }
+  } else if (isChatHideShow) {
+    window.chatBtn = {
+      hide: () => Chatra('hide'),
+      show: () => Chatra('show')
+    }
+  }
+
+  (function(d, w, c) {
+    w.ChatraID = ''
+    var s = d.createElement('script')
+    w[c] = w[c] || function() {
+      (w[c].q = w[c].q || []).push(arguments)
+    }
+    s.async = true
+    s.src = 'https://call.chatra.io/chatra.js'
+    if (d.head) d.head.appendChild(s)
+  })(document, window, 'Chatra')
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

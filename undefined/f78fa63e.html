@@ -1,0 +1,317 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>VS Code + Github 开发 | 十柒</title><meta name="author" content="十柒,2563730049@qq.com"><meta name="copyright" content="十柒"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前置工作下载Git 和 VS Code VS Code 中 Git 的集成功能VS Code 默认启用了 Git 集成功能。打开项目当新打开一个 VS  Code 窗口时，需要打开一个项目，可以在本地文件打开项目，也可以直接从远程仓库克隆项目：分支管理在 Git 中，允许同时处理代码库的多个版本。可以在源代码管理边栏的最下面看到当前所在的分支：如果该分支有修改，分支名的右上角会有一个 当你想切换分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VS Code + Github 开发">
+<meta property="og:url" content="https://rnhuahua.github.io/undefined/f78fa63e.html">
+<meta property="og:site_name" content="十柒">
+<meta property="og:description" content="前置工作下载Git 和 VS Code VS Code 中 Git 的集成功能VS Code 默认启用了 Git 集成功能。打开项目当新打开一个 VS  Code 窗口时，需要打开一个项目，可以在本地文件打开项目，也可以直接从远程仓库克隆项目：分支管理在 Git 中，允许同时处理代码库的多个版本。可以在源代码管理边栏的最下面看到当前所在的分支：如果该分支有修改，分支名的右上角会有一个 当你想切换分">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://rnhuahua.github.io/img/shenzi_img/4.jpg">
+<meta property="article:published_time" content="2024-12-24T06:14:31.000Z">
+<meta property="article:modified_time" content="2024-12-24T06:23:20.449Z">
+<meta property="article:author" content="十柒">
+<meta property="article:tag" content="C&#x2F;C++, Linux, 控制，算法，嵌入式">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://rnhuahua.github.io/img/shenzi_img/4.jpg"><link rel="shortcut icon" href="/img/tou.jpg"><link rel="canonical" href="https://rnhuahua.github.io/undefined/f78fa63e.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'VS Code + Github 开发',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><link rel="stylesheet" href="/css/_custom/custom.css"><!--style--><!--  body {--><!--    background: url("#{ page.top_img || theme.default_top_img }") no-repeat center center fixed !important;--><!--    background-size: cover !important;--><!--  }--><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (false) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="/css/progress_bar.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/tou.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 网页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/shenzi_img/4.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"></a><a class="nav-page-title" href="/"><span class="site-name">VS Code + Github 开发</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 网页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">VS Code + Github 开发</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-12-24T06:14:31.000Z" title="发表于 2024-12-24 14:14:31">2024-12-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-24T06:23:20.449Z" title="更新于 2024-12-24 14:23:20">2024-12-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">663</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="前置工作"><a href="#前置工作" class="headerlink" title="前置工作"></a>前置工作</h1><p>下载Git 和 VS Code</p>
+<h1 id="VS-Code-中-Git-的集成功能"><a href="#VS-Code-中-Git-的集成功能" class="headerlink" title="VS Code 中 Git 的集成功能"></a>VS Code 中 Git 的集成功能</h1><p>VS Code 默认启用了 Git 集成功能。<br><strong>打开项目</strong><br>当新打开一个 VS  Code 窗口时，需要打开一个项目，可以在本地文件打开项目，也可以直接从远程仓库克隆项目：<br><img src="/undefined/f78fa63e/image.png" alt><br><strong>分支管理</strong><br>在 Git 中，允许同时处理代码库的多个版本。可以在源代码管理边栏的最下面看到当前所在的分支：<br><img src="/undefined/f78fa63e/image-1.png" alt="alt text"><br>如果该分支有修改，分支名的右上角会有一个 <em><br><img src="/undefined/f78fa63e/image-2.png" alt="alt text"><br>当你想切换分支，可以点击这个分支名称，就会出现所有分支的列表：<br><img src="/undefined/f78fa63e/image-3.png" alt="alt text"><br>可以看到，这里面有两类分支，上面一类是带分支图标的，下面另一类是带云图标的。前者表示本地分支，后者表示远程分支。点击本地分支，就会切换到对应的分支，点击远程分支，就会将远程分支同步到本地，并在本地创建一个同名的分支。<br>重命名分支和删除分支<br><img src="/undefined/f78fa63e/image-4.png" alt="alt text"><br>合并分支，可以选择从哪个分支向当前分支进行合并，选择被合并的分分支即可。<br>新创建的分支可以点击发布Branch按钮来发布到远程仓库。<br><img src="/undefined/f78fa63e/image-7.png" alt="alt text"><br><em>*发布管理</em></em><br>如果想暂存所有文件，可以点击在“更改”那一行后面的加号即可<br><img src="/undefined/f78fa63e/image-5.png" alt="alt text"><br>这个暂存操作就相当于执行 git add 命令。<br>对于暂存的文件，可以进行commit 操作。只需在上面的输入框输入commit信息，然后点击提交按钮即可。<br><img src="/undefined/f78fa63e/image-6.png" alt="alt text"><br>当我们修改完代码之后，就需要推送代码到远程了，可以点击同步更改按钮。<br><img src="/undefined/f78fa63e/image-8.png" alt="alt text"><br>也可以用下方的同步按钮，上箭头表示本地分支比远程分支领先的 commit 数量，下箭头相反。<br><img src="/undefined/f78fa63e/image-9.png" alt="alt text"></p>
+<h1 id="Github插件推荐"><a href="#Github插件推荐" class="headerlink" title="Github插件推荐"></a>Github插件推荐</h1><p><strong>GitLens</strong><br>GitLens 是一个强大的 Git 扩展，提供了丰富的功能，如代码作者信息、提交历史、文件和分支比较等。</p>
+<p><strong>GitHub Pull Requests</strong><br>这个插件允许你在 VSCode 中直接管理 GitHub 上的 Pull Requests，方便进行代码审查和任务跟踪。</p>
+<p><strong>Git History</strong><br>Git History 插件提供了一个直观的界面来查看 Git 历史记录，包括提交、分支和标签等信息。</p>
+<p><strong>Git Graph</strong><br>Git Graph 插件可以以图形化的方式展示 Git 仓库的提交历史，帮助你更好地理解分支和合并情况。</p>
+<p><strong>GitHub Repositories</strong><br>这个插件允许你在 VSCode 中直接浏览和管理 GitHub 仓库，无需克隆到本地。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://rnhuahua.github.io">十柒</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://rnhuahua.github.io/undefined/f78fa63e.html">https://rnhuahua.github.io/undefined/f78fa63e.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://rnhuahua.github.io" target="_blank">十柒</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/shenzi_img/4.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/undefined/1275ba19.html" title="模糊（Fuzzy）控制算法"><img class="cover" src="/img/fufu_img/4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">模糊（Fuzzy）控制算法</div></div><div class="info-2"><div class="info-item-1">一、概念模糊控制是以模糊集理论、模糊语言变量和模糊逻辑推理为基础的一种智能控制方法，它是从行为上模仿人的模糊推理和决策过程的一种智能控制算法。模糊控制首先将操作人员或专家经验编成模糊规则，然后将来自传感器的实时信号模糊化，将模糊化后的信号作为模糊规则的输入，完成模糊推理，将推理后得到的输出量加到执行器上。 二、控制过程所谓模糊控制，一般是用模糊的概念来描述偏差，并通过模糊推测得到模糊的给定量。比如，对偏差的描述常用“正大”，“正小”，“零”，“负小”，“负大”等模糊概念。  精确的测量值经过输入模糊化过程变成模糊集； 利用控制规则进行推理，即模糊决策，得到控制作用的模糊集； 将控制作用的模糊集按照一定的规则转化成精确值，此为逆模糊化。  三、前置基础知识1. 模糊逻辑与传统逻辑的区别模糊逻辑是模糊控制的重要工具，它与传统逻辑的主要区别在于变量的真值。  传统逻辑：真值只能是 0 或 1（非黑即白）。    例：今天是否下雨？要么“是”，要么“否”。   模糊逻辑：真值可以是 [0, 1] 之间的任意值，表示某事的模糊程度。    例：今天是“有点下雨”（隶属度为...</div></div></div></a><a class="pagination-related" href="/undefined/ca675cd4.html" title="Git使用"><img class="cover" src="/img/shenzi_img/2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Git使用</div></div><div class="info-2"><div class="info-item-1">Git 是一个分布式版本控制系统，由 Linus Torvalds 于 2005 年开发，用于高效管理和跟踪代码更改。 基本概念： 工作区 (Working Directory)：你当前正在处理的项目目录。 暂存区 (Staging Area)：用来暂存修改的地方，通常用 git add 将更改放入。 版本库 (Repository)：存储项目历史版本的地方，用 git commit 提交更改。 远程仓库 (Remote Repository)：托管在服务器上的版本库，比如 GitHub、GitLab。  安装Windows系统 访问 Git官网 下载适用于Windows的安装程序。 双击下载的安装程序，按照提示进行安装。 安装完成后，打开命令提示符，输入 git --version 验证安装是否成功。  Linux系统安装在Linux系统上安装Git可以使用包管理器，例如apt（适用于Debian/Ubuntu）或yum（适用于CentOS/RHEL）。  使用apt安装Git（Debian/Ubuntu）12sudo apt updatesudo apt install...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/tou.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">十柒</div><div class="author-info-description">苦逼学生党</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="mailto:2563730049@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎光临小站！<br>&emsp;&emsp;本站的内容经过个人总结编写而来，也参考借鉴了网友们分享的资料，如有侵权，请第一时间联系我，我将及时进行修改或删除😊</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E5%B7%A5%E4%BD%9C"><span class="toc-text">前置工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VS-Code-%E4%B8%AD-Git-%E7%9A%84%E9%9B%86%E6%88%90%E5%8A%9F%E8%83%BD"><span class="toc-text">VS Code 中 Git 的集成功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Github%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90"><span class="toc-text">Github插件推荐</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/undefined/614f23f1.html" title="解决Github进不去的问题"><img src="/img/niuza_img/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="解决Github进不去的问题"/></a><div class="content"><a class="title" href="/undefined/614f23f1.html" title="解决Github进不去的问题">解决Github进不去的问题</a><time datetime="2025-06-28T11:24:40.000Z" title="发表于 2025-06-28 19:24:40">2025-06-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/36402340.html" title="LOS"><img src="/img/fufu_img/3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LOS"/></a><div class="content"><a class="title" href="/undefined/36402340.html" title="LOS">LOS</a><time datetime="2025-05-10T09:37:51.000Z" title="发表于 2025-05-10 17:37:51">2025-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/73b25c11.html" title="Cmake 实践"><img src="/img/shenzi_img/6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cmake 实践"/></a><div class="content"><a class="title" href="/undefined/73b25c11.html" title="Cmake 实践">Cmake 实践</a><time datetime="2025-05-07T07:58:31.000Z" title="发表于 2025-05-07 15:58:31">2025-05-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/5ae3167f.html" title="Linux下基于VSCode的c和c++编译环境搭建"><img src="/img/shenzi_img/5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux下基于VSCode的c和c++编译环境搭建"/></a><div class="content"><a class="title" href="/undefined/5ae3167f.html" title="Linux下基于VSCode的c和c++编译环境搭建">Linux下基于VSCode的c和c++编译环境搭建</a><time datetime="2025-05-06T08:51:31.000Z" title="发表于 2025-05-06 16:51:31">2025-05-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/7fb710be.html" title="gcc、make与cmake"><img src="/img/shenzi_img/4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="gcc、make与cmake"/></a><div class="content"><a class="title" href="/undefined/7fb710be.html" title="gcc、make与cmake">gcc、make与cmake</a><time datetime="2025-04-19T08:51:31.000Z" title="发表于 2025-04-19 16:51:31">2025-04-19</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/shenzi_img/4.jpg);"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2025 By 十柒</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const loadMathjax = () => {
+    if (!window.MathJax) {
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          tags: 'none',
+        },
+        chtml: {
+          scale: 1.1
+        },
+        options: {
+          enableMenu: true,
+          renderActions: {
+            findScript: [10, doc => {
+              for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+                const display = !!node.type.match(/; *mode=display/)
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+                const text = document.createTextNode('')
+                node.parentNode.replaceChild(text, node)
+                math.start = {node: text, delim: '', n: 0}
+                math.end = {node: text, delim: '', n: 0}
+                doc.math.push(math)
+              }
+            }, '']
+          }
+        }
+      }
+      
+      const script = document.createElement('script')
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+      script.id = 'MathJax-script'
+      script.async = true
+      document.head.appendChild(script)
+    } else {
+      MathJax.startup.document.state(0)
+      MathJax.texReset()
+      MathJax.typesetPromise()
+    }
+  }
+
+  btf.addGlobalFn('encrypt', loadMathjax, 'mathjax')
+  window.pjax ? loadMathjax() : window.addEventListener('load', loadMathjax)
+})()</script><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.isShuoshuo
+  const option = null
+
+  const commentCount = n => {
+    const isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+    if (isCommentCount) {
+      isCommentCount.textContent= n
+    }
+  }
+
+  const initGitalk = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGitalk = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const gitalk = new Gitalk({
+      clientID: 'Ov23li9WWC34KRq8FHtj',
+      clientSecret: '703347e9544bae54fbcf7d7ebe6a76ccc15506e6',
+      repo: 'rnhuahua.github.io',
+      owner: 'rnhuahua',
+      admin: ['rnhuahua'],
+      updateCountCallback: commentCount,
+      ...option,
+      id: isShuoshuo ? path : (option && option.id) || 'd350543ff69017574297040a877e947e'
+    })
+
+    gitalk.render('gitalk-container')
+  }
+
+  const loadGitalk = async(el, path) => {
+    if (typeof Gitalk === 'function') initGitalk(el, path)
+    else {
+      await btf.getCSS('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css')
+      await btf.getScript('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js')
+      initGitalk(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Gitalk' === 'Gitalk'
+      ? window.shuoshuoComment = { loadComment: loadGitalk }
+      : window.loadOtherComment = loadGitalk
+    return
+  }
+
+  if ('Gitalk' === 'Gitalk' || !false) {
+    if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+    else loadGitalk()
+  } else {
+    window.loadOtherComment = loadGitalk
+  }
+})()</script></div><script async src="/js/title.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script>(() => {
+  const isChatBtn = false
+  const isChatHideShow = false
+
+  if (isChatBtn) {
+    const close = () => {
+      Chatra('minimizeWidget')
+      Chatra('hide')
+    }
+
+    const open = () => {
+      Chatra('openChat', true)
+      Chatra('show')
+    }
+
+    window.ChatraSetup = { startHidden: true }
+  
+    window.chatBtnFn = () => {
+      document.getElementById('chatra').classList.contains('chatra--expanded') ? close() : open()
+    }
+  } else if (isChatHideShow) {
+    window.chatBtn = {
+      hide: () => Chatra('hide'),
+      show: () => Chatra('show')
+    }
+  }
+
+  (function(d, w, c) {
+    w.ChatraID = ''
+    var s = d.createElement('script')
+    w[c] = w[c] || function() {
+      (w[c].q = w[c].q || []).push(arguments)
+    }
+    s.async = true
+    s.src = 'https://call.chatra.io/chatra.js'
+    if (d.head) d.head.appendChild(s)
+  })(document, window, 'Chatra')
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
